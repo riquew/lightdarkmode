@@ -1,13 +1,21 @@
 :root {
   --fundo-padrao: #f7f7f7;
-  --cor-texto-padrao: #000;
+  --fundo-contraste: #fff;
+  --cor-logo: brightness(100%) contrast(100%);
+  --cor-texto-padrao: #222;
+  --cor-texto-contraste: #c6c6c6;
   --cor-destaque: #ee2211;
+  --imagem-vantagem: url("./img/onda.svg");
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --fundo-padrao: #222;
+    --fundo-contraste: #525252;
+    --cor-logo: brightness(0) invert(1);
     --cor-texto-padrao: #eee;
+    --cor-texto-contraste: #525252;
+    --imagem-vantagem: none;
   }
 }
 
@@ -32,6 +40,7 @@ h1,
 h2,
 h3 {
   margin: 0;
+  color: var(--cor-texto-padrao);
 }
 
 img {
@@ -45,6 +54,10 @@ img {
   margin: 60px 0;
 }
 
+.logoHeader {
+  filter: var(--cor-logo);
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -54,7 +67,7 @@ nav {
 
 nav li {
   font-size: 1rem;
-  background-color: var(--fundo-padrao);
+  background-color: var(--fundo-contraste);
   font-weight: 500;
   margin-bottom: 60px;
   margin-right: 20px;
@@ -81,7 +94,7 @@ nav li:hover {
 }
 
 .fundoBranco {
-  background-color: var(--fundo-padrao);
+  background-color: var(--fundo-contraste);
 }
 
 .foto::before {
@@ -126,14 +139,17 @@ nav li:hover {
 }
 
 .logoVantagens {
-  background-image: url("./img/onda.svg");
+  background-image: var(--imagem-vantagem);
   padding: 40px;
   font-size: 4rem;
   display: flex;
   align-items: center;
   text-align: right;
-  color: #c6c6c6;
   font-weight: 600;
+}
+
+.logoVantagens p {
+  color: var(--cor-texto-contraste);
 }
 
 .descricaoVantagens {
@@ -150,7 +166,7 @@ nav li:hover {
 }
 
 .vantagem:nth-child(odd) {
-  background-color: #f7f7f7;
+  background-color: var(--fundo-padrao);
 }
 
 .vantagem:hover {
@@ -167,7 +183,7 @@ nav li:hover {
 }
 
 footer {
-  background-color: #ffffff;
+  background-color: var(--fundo-contraste);
   margin-top: 60px;
   padding: 40px;
   text-align: center;
@@ -246,14 +262,6 @@ footer {
   .descricaoVantagens {
     padding: 0px;
     font-size: 1rem;
-  }
-
-  .vantagem:nth-child(odd) {
-    background-color: #fff;
-  }
-
-  .vantagem:nth-child(even) {
-    background-color: #f7f7f7;
   }
 
   .vantagem:last-child {
