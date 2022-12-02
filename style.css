@@ -1,0 +1,293 @@
+:root {
+  --fundo-padrao: #f7f7f7;
+  --cor-texto-padrao: #000;
+  --cor-destaque: #ee2211;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo-padrao: #222;
+    --cor-texto-padrao: #eee;
+  }
+}
+
+body {
+  background-color: var(--fundo-padrao);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: var(--cor-texto-padrao);
+}
+
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.logo {
+  display: grid;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav li {
+  font-size: 1rem;
+  background-color: var(--fundo-padrao);
+  font-weight: 500;
+  margin-bottom: 60px;
+  margin-right: 20px;
+  border-radius: 4px;
+  list-style: none;
+  display: inline-block;
+  border: 2px solid transparent;
+}
+
+li a {
+  padding: 15px 30px;
+  display: inline-block;
+}
+
+nav li:hover {
+  border-color: var(--cor-destaque);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  max-width: 1000px;
+}
+
+.fundoBranco {
+  background-color: var(--fundo-padrao);
+}
+
+.foto::before {
+  content: "";
+  position: absolute;
+  background-color: var(--cor-destaque);
+  height: 3px;
+  width: 60px;
+  right: 470px;
+  top: 30px;
+}
+
+.foto img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.conteudo {
+  padding: 40px;
+  text-align: right;
+  line-height: 1.25;
+  display: grid;
+  gap: 20px;
+  align-content: center;
+  justify-items: end;
+}
+
+.conteudo p {
+  font-size: 1.25rem;
+}
+
+.botao {
+  background-color: var(--cor-destaque);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.botao:hover {
+  background-color: #900;
+}
+
+.logoVantagens {
+  background-image: url("./img/onda.svg");
+  padding: 40px;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  color: #c6c6c6;
+  font-weight: 600;
+}
+
+.descricaoVantagens {
+  padding: 40px;
+  font-size: 1.25rem;
+}
+
+.vantagem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px 20px;
+  padding: 20px;
+  border-left: 4px solid transparent;
+}
+
+.vantagem:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+.vantagem:hover {
+  border-color: var(--cor-destaque);
+}
+
+.vantagemTitulo {
+  font-weight: 600;
+}
+
+.vantagemDescricao {
+  grid-column: 2;
+  margin-top: 5px;
+}
+
+footer {
+  background-color: #ffffff;
+  margin-top: 60px;
+  padding: 40px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 400;
+  align-self: stretch;
+  justify-self: stretch;
+  align-items: stretch;
+}
+
+@media only screen and (max-width: 670px) {
+  body {
+    padding: 0;
+  }
+  .logo {
+    margin: 30px 20px;
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 4px 4px 0 0;
+  }
+
+  nav {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  nav li {
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .grid {
+    margin: 0 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .foto::before {
+    display: none;
+  }
+
+  .foto {
+    order: -1;
+  }
+
+  .conteudo {
+    padding: 20px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .conteudo p {
+    font-size: 1rem;
+    max-width: 40ch;
+  }
+
+  .botao {
+    padding: 15px 100px;
+  }
+
+  .logoVantagens {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .descricaoVantagens {
+    padding: 0px;
+    font-size: 1rem;
+  }
+
+  .vantagem:nth-child(odd) {
+    background-color: #fff;
+  }
+
+  .vantagem:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+
+  .vantagem:last-child {
+    border-radius: 0 0 4px 4px;
+  }
+
+  footer {
+    margin-top: 20px;
+    font-size: 1rem;
+    padding: 30px;
+  }
+}
+
+@media only screen and (min-width: 670px) and (max-width: 1000px) {
+  .grid {
+    margin: 0 20px;
+    grid-template-columns: auto auto;
+  }
+
+  .conteudo p {
+    font-size: 1rem;
+    max-width: 40ch;
+  }
+
+  .foto::before {
+    display: none;
+  }
+
+  .logoVantagens {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .descricaoVantagens {
+    font-size: 1rem;
+  }
+}
